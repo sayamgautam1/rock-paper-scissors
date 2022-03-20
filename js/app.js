@@ -29,27 +29,28 @@ function game() {
   ).toLowerCase();
   playRound(playerChoice, computerChoice);
 }
-for (i = 0; i < 5; i++) {
-  game();
-}
-prompt(`total player wins is ${wins} and computer wins ${5 - wins}`);
 
-function playAgainCommand() {
+function playTimes() {
   for (i = 0; i < 5; i++) {
     game();
   }
   prompt(`total player wins is ${wins} and computer wins ${5 - wins}`);
-  var playAgain = prompt("play again? (Y/N) or (y/n)").toLowerCase();
+  var playAgain = prompt("play again?? (Y/N) or (y/n)").toLowerCase();
   if (playAgain == "y") {
-    playAgainCommand();
+    gameStart();
   } else {
     prompt("Thankyou for playing");
   }
 }
 
-var playAgain = prompt("play again? (Y/N) or (y/n)").toLowerCase();
-if (playAgain == "y") {
-  playAgainCommand();
-} else {
-  prompt("Thankyou for playing");
+// var playAgain = prompt("Start the game (Y/N) or (y/n)").toLowerCase();
+function gameStart() {
+  var playAgain = prompt("Start the game (Y/N) or (y/n)").toLowerCase();
+  if (playAgain == "y") {
+    playTimes();
+  } else {
+    prompt("Thankyou for playing");
+  }
 }
+
+gameStart();
