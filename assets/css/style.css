@@ -1,0 +1,36 @@
+:root {
+  --background: #ea9010;
+  --text-color: #90be6d;
+}
+
+body {
+  margin: 50px;
+  background: var(--background);
+  color: var(--text-color);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+header {
+  font-size: 3em;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.images {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+.score-card {
+  min-height: 100px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.choices {
+  margin-right: 10px;
+  height: 30px;
+  justify-content: center;
+  cursor: pointer;
+}
