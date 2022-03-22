@@ -1,16 +1,30 @@
 var wins = 0;
+var userOption;
 function count() {
   wins += 1;
   return wins;
 }
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection == "rock" && computerSelection == "scissor") {
-    console.log("player wins");
-    count();
-  } else if (playerSelection == "paper" && computerSelection == "rock") {
-    console.log("player wins");
-    count();
-  } else if (playerSelection == "scissor" && computerSelection == "paper") {
+
+//get the user option//
+var userChoice = document.querySelectorAll(".choices");
+userChoice.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    playRound(choice.value);
+  });
+});
+
+// get the computer option //
+choices = ["rock", "paper", "scissor"];
+
+//compare two options//
+// playRound(userOption);
+function playRound(playerSelection) {
+  var computerSelection = choices[Math.floor(Math.random() * 3)];
+  if (
+    (playerSelection == "rock" && computerSelection == "scissor") ||
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "scissor" && computerSelection == "paper")
+  ) {
     console.log("player wins");
     count();
   } else if (playerSelection == computerSelection) {
@@ -19,16 +33,16 @@ function playRound(playerSelection, computerSelection) {
     console.log("computer wins");
   }
 }
-choices = ["rock", "paper", "scissor"];
+// playRound("rock", computerChoice);
 
-function game() {
-  var computerChoice = choices[Math.floor(Math.random() * 3)];
-  console.log(computerChoice);
-  var playerChoice = prompt(
-    "please enter rock, paper or scissor"
-  ).toLowerCase();
-  playRound(playerChoice, computerChoice);
-}
+// function game() {
+//   var computerChoice = choices[Math.floor(Math.random() * 3)];
+//   console.log(computerChoice);
+//   var playerChoice = prompt(
+//     "please enter rock, paper or scissor"
+//   ).toLowerCase();
+//   playRound(playerChoice, computerChoice);
+// }
 
 function playTimes() {
   for (i = 0; i < 5; i++) {
@@ -53,4 +67,4 @@ function gameStart() {
   }
 }
 
-gameStart();
+// gameStart();
