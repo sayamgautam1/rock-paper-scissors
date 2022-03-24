@@ -1,10 +1,15 @@
-var wins = 0;
-var userOption;
+let playerWins = 0;
+let computerWins = 0;
+let userOption;
 choices = ["rock", "paper", "scissor"];
-var computerSelection;
-function count() {
-  wins += 1;
-  return wins;
+let computerSelection;
+function playercount() {
+  playerWins += 1;
+  return playerWins;
+}
+function computerCount() {
+  computerWins += 1;
+  return computerWins;
 }
 var image = document.getElementById("images");
 // var computerImage = document.querySelector(".computer-image");
@@ -52,11 +57,12 @@ function playRound(playerSelection) {
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
     result.children[0].innerHTML = "Player Wins";
-    count();
+    score.children[0].innerHTML = "Player " + playercount();
   } else if (playerSelection == computerSelection) {
     result.children[0].innerHTML = "it's a tie";
   } else {
     result.children[0].innerHTML = "computer wins";
+    score.children[1].innerHTML = "Computer " + computerCount();
   }
 }
 
